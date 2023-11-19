@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,23 +19,32 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njg-7r-FVe">
                                 <rect key="frame" x="20" y="359" width="353" height="419"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="419" id="RS8-f2-qrh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.8694649338722229" green="0.91329622268676758" blue="0.044946394860744476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wad-hd-Xtf">
+                                <rect key="frame" x="16" y="59" width="361" height="270"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wad-hd-Xtf" secondAttribute="trailing" constant="16" id="5vP-O4-hqz"/>
+                            <constraint firstItem="wad-hd-Xtf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gp8-rh-Cta"/>
+                            <constraint firstItem="njg-7r-FVe" firstAttribute="top" secondItem="wad-hd-Xtf" secondAttribute="bottom" constant="30" id="a4Q-2X-HmK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njg-7r-FVe" secondAttribute="trailing" constant="20" id="aSp-mR-NjA"/>
                             <constraint firstItem="njg-7r-FVe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aUU-wE-tRp"/>
+                            <constraint firstItem="wad-hd-Xtf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eoa-nF-dOc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="njg-7r-FVe" secondAttribute="bottom" constant="40" id="fpG-qv-7fM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="wad-hd-Xtf" id="OzV-Ca-kjR"/>
                         <outlet property="infoLabel" destination="njg-7r-FVe" id="QlF-qb-AAT"/>
                     </connections>
                 </viewController>
@@ -44,6 +54,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

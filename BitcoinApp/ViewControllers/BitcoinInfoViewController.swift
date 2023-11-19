@@ -10,13 +10,16 @@ import UIKit
 
 class BitcoinInfoViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var infoLabel: UILabel!
     
     let network = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         fetchBtcInfo()
+        fetchImage()
     }
     
     private func fetchBtcInfo() {
@@ -61,6 +64,19 @@ class BitcoinInfoViewController: UIViewController {
 
             self.infoLabel.text = infoText
         }
+    
+    private func fetchImage() {
+        network.fetchImage(from: imageURL) { result in
+            switch result {
+                
+            case .success(let imageBTC ):
+                self.imageView.image = imageBTC
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
 
 

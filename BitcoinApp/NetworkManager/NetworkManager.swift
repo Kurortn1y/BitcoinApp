@@ -7,9 +7,11 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 
 let bitcoinUrl = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
+let imageURL = URL(string: "https://cdn.pixabay.com/photo/2018/02/04/17/39/crypto-currency-3130381_1280.jpg")!
 
 final class NetworkManager {
     
@@ -78,6 +80,21 @@ final class NetworkManager {
                     completion(.failure(error))
                 }
             }
+        
+    }
+    
+    
+    func fetchImage(from url: URL, completion: @escaping(Result<UIImage, AFError>)-> Void) {
+        AF.request(url).responseData { response  in
+            switch response.result {
+                
+            case .success(let data):
+                guard let image = UIImage(data: data) else { return }
+                completion(.success(image))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
         
     }
     
